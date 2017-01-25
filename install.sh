@@ -319,6 +319,9 @@ fi
 if ( ! which libsqlite3-dev 1>>/dev/null 2>>/dev/null ); then
 	${APTITUDE_INSTALL} libsqlite3-dev  
 fi
+if ( ! which uuid-dev 1>>/dev/null 2>>/dev/null ); then
+	${APTITUDE_INSTALL} uuid-dev  
+fi
 
 echo ""
 echo "***"
@@ -343,6 +346,7 @@ make menuselect.makeopts
 menuselect/menuselect --enable res_config_mysql menuselect.makeopts
 menuselect/menuselect --enable cdr_mysql menuselect.makeopts
 menuselect/menuselect --enable app_meetme menuselect.makeopts
+menuselect/menuselect --enable app_SetCallerPres menuselect.makeopts
 make
 make install 
 make samples
