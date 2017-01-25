@@ -302,6 +302,24 @@ sleep 3
 #
 sed -i -r -e 's/^(RAMRUN=)no/\1yes/' /etc/default/rcS || true
 
+# install libjansson-dev, sqlite3, libsqlite-dev 
+#
+echo ""
+echo "***"
+echo "***  Installing libjansson-dev, sqlite3, libsqlite3-dev ..."
+echo "***"
+if ( ! which libjansson-dev 1>>/dev/null 2>>/dev/null ); then
+	${APTITUDE_INSTALL} libjansson-dev  
+fi
+if ( ! which sqlite3 1>>/dev/null 2>>/dev/null ); then
+	${APTITUDE_INSTALL} sqlite3  
+fi
+if ( ! which libsqlite3-dev 1>>/dev/null 2>>/dev/null ); then
+	${APTITUDE_INSTALL} libsqlite3-dev  
+fi
+if ( ! which uuid-dev 1>>/dev/null 2>>/dev/null ); then
+	${APTITUDE_INSTALL} uuid-dev  
+fi
 
 # install dahdi 
 #
@@ -327,6 +345,8 @@ cd $(tar -tzf asterisk-13-current.tar.gz | head -n 1 | cut -d '/' -f1)
 make menuselect.makeopts
 menuselect/menuselect --enable res_config_mysql menuselect.makeopts
 menuselect/menuselect --enable cdr_mysql menuselect.makeopts
+menuselect/menuselect --enable app_meetme menuselect.makeopts
+menuselect/menuselect --enable app_setcallerpres menuselect.makeopts
 make
 make install 
 make samples
