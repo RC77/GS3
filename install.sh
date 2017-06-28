@@ -338,7 +338,7 @@ make config
 dahdi_genconf || true
 
 cd /usr/local/src/
-$DOWNLOAD "http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13.15.1.tar.gz"
+$DOWNLOAD "http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-13.15.1.tar.gz"
 tar -xvzf asterisk-13.15.1.tar.gz
 cd $(tar -tzf asterisk-13.15.1.tar.gz | head -n 1 | cut -d '/' -f1)
 ./configure
