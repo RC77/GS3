@@ -346,7 +346,7 @@ make menuselect.makeopts
 menuselect/menuselect --enable res_config_mysql menuselect.makeopts
 menuselect/menuselect --enable cdr_mysql menuselect.makeopts
 menuselect/menuselect --enable app_meetme menuselect.makeopts
-menuselect/menuselect --enable app_setcallerpres menuselect.makeopts
+menuselect/menuselect --enable app_setcallerid menuselect.makeopts
 make
 make install 
 make samples
